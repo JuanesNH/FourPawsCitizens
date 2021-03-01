@@ -6,15 +6,35 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-
+/**
+ * Permite cargar los registros del archivo CSV, además se crean todos los metodos del registro que se solicitan en el
+programa
+ */
 public class Manager {
-
+/**
+ * Atributo dataFile de tipo (final) String
+ */
     private final String dataFile;
+    /**
+     * Atributo id de tipo string
+ */
     private String iD;
+    /**
+     * Atributo i de tipo int
+ */
     private int i;
+    /**
+     * Atributo pets de tipo Pet
+ */
     private Pet pets;
+    /**
+     * Atributo que inicializa el array de las mascotas
+     */
     private final ArrayList<Pet> pet;
 
+    /**
+     * Constructor de la clase, inicializa los atributos creados a
+     */
     public Manager() {
         iD = "NO-ID";
         pet = new ArrayList<>();
@@ -23,6 +43,11 @@ public class Manager {
         i = 0;
     }
 
+    /**
+     * Metodo que valida si elparametro es long
+     * @param chair
+     * @return
+     */
     public static boolean isNumeric(String chair) {
 
         boolean result;
@@ -37,6 +62,10 @@ public class Manager {
         return result;
     }
 
+    /**
+     * Metodo que se encarga de leer el archivo csv y guardarlo en un arraylist
+     * @return
+     */
     public String UploadData() {
 
         String line = "";
@@ -82,6 +111,10 @@ public class Manager {
 
     }
 
+    /**
+     * Metodo que genera Id ante los parametros leidos del csv
+     * @return
+     */
     public String assignID() {
 
 
@@ -114,6 +147,11 @@ public class Manager {
 
         return iD;
     }
+
+    /**
+     * Metodo que filtra en los registros mediante el parametro microchip
+     * @param microchip
+     */
     public void findByMicrochip(long microchip) {
 
         for (int i = 0; i < pet.size(); i++) {
@@ -130,6 +168,10 @@ public class Manager {
         }
     }
 
+    /**
+     * Metodo que cuenta la cantidad de animales por especie
+     * @param species
+     */
     public void countBySpecies(String species) {
         int cont = 0;
         for (int i = 0; i < pet.size(); i++) {
@@ -140,7 +182,14 @@ public class Manager {
         System.out.println("El número de animales de la especie " + species + " es: " + cont);
     }
 
-public String findBypotentDangerousInNeighborhood(int n, String position, String neighborhood) {
+    /**
+     * Metodo que retorna un número dado de animales según su localidad donde pueden ser los n primeros y los n ultimos
+     * @param n
+     * @param position
+     * @param neighborhood
+     * @return
+     */
+    public String findBypotentDangerousInNeighborhood(int n, String position, String neighborhood) {
         String r = "";
         int cont = 0;
         int cont2 = 0;
@@ -175,6 +224,14 @@ public String findBypotentDangerousInNeighborhood(int n, String position, String
 
     }
 
+    /**
+     * Método que retorna los id de los animales que busca mediante los parametros del registro ingresados
+     * @param sex
+     * @param species
+     * @param size
+     * @param potentDangerous
+     * @return
+     */
     public String findByMultipleFields(String sex, String species, String size, String potentDangerous) {
         boolean bandera = false;
         if (potentDangerous.equalsIgnoreCase("si")) {
@@ -191,36 +248,59 @@ public String findBypotentDangerousInNeighborhood(int n, String position, String
         }
         return resultado;
     }
-    
+    /**
+     * @return the dataFile
+     */
     public String getDataFile() {
         return dataFile;
     }
 
+    /**
+     * @return the iD
+     */
     public String getiD() {
         return iD;
     }
 
-    public void setiD(String iD) {
-        this.iD = iD;
-    }
-
+    /**
+     * @return the i
+     */
     public int getI() {
         return i;
     }
 
-    public void setI(int i) {
-        this.i = i;
-    }
-
+    /**
+     * @return the pets
+     */
     public Pet getPets() {
         return pets;
     }
 
-    public void setPets(Pet pets) {
-        this.pets = pets;
-    }
-
+    /**
+     * @return the pet
+     */
     public ArrayList<Pet> getPet() {
         return pet;
+    }
+
+    /**
+     * @param iD the iD to set
+     */
+    public void setiD(String iD) {
+        this.iD = iD;
+    }
+
+    /**
+     * @param i the i to set
+     */
+    public void setI(int i) {
+        this.i = i;
+    }
+
+    /**
+     * @param pets the pets to set
+     */
+    public void setPets(Pet pets) {
+        this.pets = pets;
     }
 }

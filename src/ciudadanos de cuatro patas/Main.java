@@ -6,6 +6,10 @@ import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
+/**
+ * Clase que instancia el controlador y maneja la vista por consola. ademas se implementan los parametros de la clase
+ * manager
+ */
 public class Main {
     public static void main(String[] args) {
         Manager control = new Manager();
