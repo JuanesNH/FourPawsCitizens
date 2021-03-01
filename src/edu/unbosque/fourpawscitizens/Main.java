@@ -41,8 +41,8 @@ public class Main {
 
                     System.out.println("El proceso de asignación de ids ha finalizado");
                     System.out.println(control.getPet().get(38).getId());
-                    }
-                 if (number == 3){
+                }
+                if (number == 3){
                     System.out.println("Ingrese el microchip a buscar");
                     long microchip = 0;
                     microchip = reader.nextLong();
@@ -88,8 +88,8 @@ public class Main {
                     System.out.println(control.findByMultipleFields(sex, specie, size, potentDangerous));
                 }
 
-                }
-             catch (InputMismatchException i) {
+            }
+            catch (InputMismatchException i) {
                 System.out.println("Dato erroneo, Señor Usuario, ingrese un número valido ");
                 reader.next();
             }

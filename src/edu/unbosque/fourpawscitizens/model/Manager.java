@@ -8,24 +8,24 @@ import java.util.ArrayList;
 
 /**
  * Permite cargar los registros del archivo CSV, además se crean todos los metodos del registro que se solicitan en el
-programa
+ programa
  */
 public class Manager {
-/**
- * Atributo dataFile de tipo (final) String
- */
+    /**
+     * Atributo dataFile de tipo (final) String
+     */
     private final String dataFile;
     /**
      * Atributo id de tipo string
- */
+     */
     private String iD;
     /**
      * Atributo i de tipo int
- */
+     */
     private int i;
     /**
      * Atributo pets de tipo Pet
- */
+     */
     private Pet pets;
     /**
      * Atributo que inicializa el array de las mascotas
@@ -233,20 +233,20 @@ public class Manager {
      * @return
      */
     public String findByMultipleFields(String sex, String species, String size, String potentDangerous) {
-        boolean bandera = false;
+        boolean pD = false;
         if (potentDangerous.equalsIgnoreCase("si")) {
-            bandera = true;
+            pD = true;
         }
-        String resultado = "";
-        for (Pet mascota : pet) {
-            if (mascota.getSex().equalsIgnoreCase(sex) && mascota.getSpecies().equalsIgnoreCase(species) && mascota.getSize().equalsIgnoreCase(size) && mascota.isPotentDangerous() == bandera) {
+        String r = "";
+        for (Pet petMultiple : pet) {
+            if (petMultiple.getSex().equalsIgnoreCase(sex) && petMultiple.getSpecies().equalsIgnoreCase(species) && petMultiple.getSize().equalsIgnoreCase(size) && petMultiple.isPotentDangerous() == pD) {
 
-                //(mascota.getPotentDangerous()&&potentDangerous.equalsIgnoreCase("si")||!!mascota.getPotentDangerous()&&potentDangerous.equalsIgnoreCase("mo"))){
-                resultado += mascota.getId();
-                resultado += "\n";
+
+                r += petMultiple.getId();
+                r += "\n";
             }
         }
-        return resultado;
+        return r;
     }
     /**
      * @return the dataFile
