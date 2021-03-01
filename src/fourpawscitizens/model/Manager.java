@@ -140,7 +140,58 @@ public class Manager {
         System.out.println("El número de animales de la especie " + species + " es: " + cont);
     }
 
+public String findBypotentDangerousInNeighborhood(int n, String position, String neighborhood) {
+        String r = "";
+        int cont = 0;
+        int cont2 = 0;
+        int contN = pet.size() - 1;
+        if (position.equals("TOP")) {
+            while (cont != n) {
+                if (pet.get(cont2).getNeighborhood().equals(neighborhood)) {
+                    r += pet.get(cont2).toString() + "\n";
+                    cont++;
+                    cont2++;
+                } else {
+                    cont2 += 1;
+                }
 
+
+            }
+
+        } else if (position.equals("LAST")) {
+            while (cont != n) {
+                if (pet.get(contN).getNeighborhood().equals(neighborhood)) {
+                    r += pet.get(contN).toString() + "\n";
+                    contN--;
+                    cont++;
+                } else {
+                    contN--;
+                }
+            }
+
+        }
+        return r;
+
+
+    }
+
+    public String findByMultipleFields(String sex, String species, String size, String potentDangerous) {
+        boolean bandera = false;
+        if (potentDangerous.equalsIgnoreCase("si")) {
+            bandera = true;
+        }
+        String resultado = "";
+        for (Pet mascota : pet) {
+            if (mascota.getSex().equalsIgnoreCase(sex) && mascota.getSpecies().equalsIgnoreCase(species) && mascota.getSize().equalsIgnoreCase(size) && mascota.isPotentDangerous() == bandera) {
+
+                //(mascota.getPotentDangerous()&&potentDangerous.equalsIgnoreCase("si")||!!mascota.getPotentDangerous()&&potentDangerous.equalsIgnoreCase("mo"))){
+                resultado += mascota.getId();
+                resultado += "\n";
+            }
+        }
+        return resultado;
+    }
+    
     public String getDataFile() {
         return dataFile;
     }
