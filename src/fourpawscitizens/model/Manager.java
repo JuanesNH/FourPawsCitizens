@@ -114,6 +114,31 @@ public class Manager {
 
         return iD;
     }
+    public void findByMicrochip(long microchip) {
+
+        for (int i = 0; i < pet.size(); i++) {
+            if (microchip == pet.get(i).getMicrochip()) {
+
+                System.out.println("ID: " + pet.get(i).getId() +
+                        "\nSpecies: " + pet.get(i).getSpecies() +
+                        "\nGender: " + pet.get(i).getSex() +
+                        "\nSize: " + pet.get(i).getSize() +
+                        "\nPotentially Dangerous :" + pet.get(i).isPotentDangerous() +
+                        "\nNeighborhood :" + pet.get(i).getNeighborhood());
+
+            }
+        }
+    }
+
+    public void countBySpecies(String species) {
+        int cont = 0;
+        for (int i = 0; i < pet.size(); i++) {
+            if (pet.get(i).getSpecies().equals(species)) {
+                cont++;
+            }
+        }
+        System.out.println("El número de animales de la especie " + species + " es: " + cont);
+    }
 
 
     public String getDataFile() {
