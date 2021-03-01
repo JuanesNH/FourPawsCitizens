@@ -38,6 +38,18 @@ public class Main {
                     System.out.println("El proceso de asignación de ids ha finalizado");
                     System.out.println(control.getPet().get(38).getId());
                     }
+                 if (number == 3){
+                    System.out.println("Ingrese el microchip a buscar");
+                    long microchip = 0;
+                    microchip = reader.nextLong();
+                    control.findByMicrochip(microchip);
+                }
+                if(number== 4){
+                    System.out.println("Ingrese la especie a contar");
+                    String specie;
+                    specie = reader.next();
+                    control.countBySpecies(specie);
+                }
 
                 }
              catch (InputMismatchException i) {
