@@ -50,6 +50,39 @@ public class Main {
                     specie = reader.next();
                     control.countBySpecies(specie);
                 }
+                if (number == 5){
+                    System.out.println("Ingrese el número de posiciones ");
+                    int n;
+                    n = reader.nextInt();
+                    System.out.println("Ingrese \"TOP\" para mostrar los primeros o \"LAST\" para mostrar los últimos");
+                    String position;
+                    position = reader.next();
+                    position = position.toUpperCase();
+                    System.out.println("Ingrese la localidad a buscar");
+                    String neighborhood;
+                    neighborhood = reader.next();
+                    neighborhood = neighborhood.toUpperCase();
+                    System.out.println(control.findBypotentDangerousInNeighborhood(n, position, neighborhood));
+                }
+                if (number == 6){
+                    System.out.println("Ingrese sexo");
+                    String sex;
+                    sex = reader.next();
+                    sex = sex.toUpperCase();
+                    System.out.println("Ingrese especie");
+                    String specie;
+                    specie = reader.next();
+                    specie = specie.toLowerCase();
+                    System.out.println("Ingrese tamaño");
+                    String size;
+                    size = reader.next();
+                    size = size.toUpperCase();
+                    System.out.println("¿El animal es potencialmente peligroso?");
+                    String potentDangerous;
+                    potentDangerous = reader.next();
+                    potentDangerous = potentDangerous.toLowerCase();
+                    System.out.println(control.findByMultipleFields(sex, specie, size, potentDangerous));
+                }
 
                 }
              catch (InputMismatchException i) {
